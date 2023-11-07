@@ -220,4 +220,4 @@ label caunt:
 # git remote add origin https://github.com/GlebZinovyev/Novel.git ls -al
 # git remote add origin https://github.com/GlebZinovyev/Novel.git
 # rm -rf .git
-rmdir .git
+# rmdir .git

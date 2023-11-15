@@ -10,7 +10,7 @@ define h = Character('Хиро', color="#f58d42", image='hiro')
 # а eileen happy — "eileen happy.webp", и тогда они появятся в игре.
 init:
     define count_test1 = 0
-    $ left2 = Position(xalign=0.2, yalign=1.1)
+    $ left2 = Position(xalign=0.1, yalign=1.1)
     $ left3 = Position(xalign=0.4, yalign=1.1)
     $ right2 = Position(xalign=0.8, yalign=1.1)
 # Игра начинается здесь:
@@ -19,7 +19,7 @@ label start:
     scene bg close
     "Урок математики. Себастиан спит."
     so "Себастиан вставай, там тест раздают."
-    scene bg class
+    scene bg math class
     with fade
     show soniy angry
     with dissolve
@@ -30,7 +30,7 @@ label start:
     s "ооааа, спять хочется"
     hide sebostian with dissolve
     "Себастиан моргнул и перед ним появился тест"
-    scene bg test
+    scene bg math2
     with fade
     ""
     menu:
@@ -127,7 +127,7 @@ label start:
     #hide bg test
     #with fade
     # ВТОРАЯ СЦЕНА
-    scene bg outside
+    scene bg park1
     with fade
     show hiro calm at left2
     show sebostian calm at right2
@@ -144,7 +144,9 @@ label start:
     elif 9 <= count_test1 <= 10:
         h happy "Эх, Себастиан, ты просто бог математики! Куда мечтаешь попасть?"
         s happy "Что поделаешь, я просто гений! Думаю, в Урфу, наверное."
-    scene bg outside2
+    hide hiro with dissolve
+    hide sebostian with dissolve
+    scene bg park2
     with fade
     show hiro calm at left2
     show sebostian calm at right2
@@ -158,7 +160,9 @@ label start:
             h happy "ну в Екб вроде не плохо"
     h calm "а куда конкретнее хочешь поступить?"
     s calm "хочу на программиста, они зарабатывают многа деняк и это ближе к моим интересам. Да еще и профессия перспективная!"
-    scene bg outside2
+    hide hiro with dissolve
+    hide sebostian with dissolve
+    scene bg park3
     with fade
     show hiro calm at left2
     show sebostian calm at right2
@@ -176,27 +180,30 @@ label start:
     h calm "ну да, мне это интереснее будет"
     h calm "Может мне тоже тогда в Урфу поступить?"
     s happy "Давай, будем вместе учиться!"
+    hide hiro with dissolve
+    hide sebostian with dissolve
     ""
 
     # ТРЕТЬЯ СЦЕНА
-    scene bg outclass
+    scene bg corridor
     with fade
     "перед входом в кабинет"
     show sebostian calm at right2
-    show soniy happy at left3
     show hiro calm at left2
+    show soniy happy at left3
+
     s "ух... страшно сдавать егэ"
     so "не бойся мы готовились весь год, мы точно сдадим"
     h "На этом жизнь не останавливается, не волнуйся"
-
-    scene bg class
+    scene bg ege
     with fade
     "Заходят в кабинет и пишут экзамен"
-    scene bg outschool
+    scene bg school
     with fade
     show sebostian calm at right2
-    show soniy calm at left3
     show hiro calm at left2
+    show soniy calm at left3
+
     if count_test1 <= 4:
         s angry "я точно плохо сдал"
         so "ну не унывай, возможно проходной будет"
@@ -213,6 +220,66 @@ label start:
         s happy "вообще всё изи было. Спина только болит."
         so "по мне так сложно было"
         s angry "Непростой вариант, вторая часть все гробы"
+
+    scene bg room
+    with fade
+    "Дом Себастиана, получение результатов"
+    show sebostian calm at left2
+    if count_test1 <= 2:
+        scene bg ege11
+        with fade
+        "Себастиан видит 11 баллов  и  разочарован"
+        "GAME OVER, остался на второй год"
+        return
+    elif 3 <= count_test1 <= 6:
+        scene bg ege66
+        with fade
+        "Себастиан видит 66 баллов егэ по математике  и радуется"
+        s happy "дворником что ли буду"
+    elif 7 <= count_test1 <= 8:
+        scene bg ege74
+        with fade
+        "Себастиан видит 74 баллов егэ по математике, расстроен что не 81"
+        s happy "да я мегамозг, жалко что не 81"
+    elif 9 <= count_test1 <= 10:
+        scene bg ege100
+        with fade
+        "Себастиан видит 100 баллов егэ по математике, без эмоций смотрит на монитор"
+        s calm "пфф, как это можно не сдать"
+    # СЦЕНА 4
+    scene bg apartment
+    with fade
+    show sebostian calm at left2
+    show soniy calm at right2
+    s happy "привет Соня, давай проходи"
+    so happy "приветик"
+    so happy "Эй, Себастиан, это так здорово, что мы идем в университет! Куда ты собираешься поступать?"
+    menu:
+        "Ага, действительно здорово!":
+            s happy ""
+        "здорово, но немного грустно покидать школу.":
+            s calm ""
+    scene bg room
+    with fade
+    show sebostian calm at left3
+    show soniy calm at right2
+    s calm "Я думаю о поступлении в Урфу. Это же самый крутой вуз на урале!"
+    so happy "О, Урфу звучит интересно!"
+    s calm "А ты, Соня, куда решила поступать?"
+    so calm "Я выбрала МГУ. Хочу пожить в Москве. МГУ - топ один вуз в стране, оттуда точно дураком не выпустишься."
+    s happy "Москва, да там будет весело."
+    so angry "Но, Себастиан, это означает, что мы долго не будем видеться"
+    s calm "Да, я об этом подумал. Но мы всегда можем оставаться на связи и приезжать друг к другу в гости, верно?"
+    so happy "Конечно! Ничто не может разрушить нашу дружбу. Мы всегда будем поддерживать связь и делиться новостями."
+    s happy "Точно, ничто не сможет нас разлучить, даже если мы будем далеко друг от друга."
+    scene bg apartment
+    with fade
+    show sebostian calm at left2
+    show soniy calm at right2
+    so calm "ну я пошла, пока пока"
+    s calm "пока"
+    hide soniy with dissolve
+    "Соня уходит домой"
 label caunt:
     $ count_test1 = count_test1 + 1
     return
@@ -220,4 +287,4 @@ label caunt:
 # git remote add origin https://github.com/GlebZinovyev/Novel.git ls -al
 # git remote add origin https://github.com/GlebZinovyev/Novel.git
 # rm -rf .git
-# rmdir .git git commit -m "Novel"
+# rmdir .git git commit -m "Novel" git add .

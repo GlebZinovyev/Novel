@@ -287,4 +287,4 @@ label caunt:
 # git remote add origin https://github.com/GlebZinovyev/Novel.git ls -al
 # git remote add origin https://github.com/GlebZinovyev/Novel.git
 # rm -rf .git
-# rmdir .git git commit -m "Novel" git add .
+# rmdir .git git commit -m "Novel" git add . git commit -m "first arc"

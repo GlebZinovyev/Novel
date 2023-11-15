@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4ee12b7b-1e25-49f5-9377-cc3f214542aa" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg apartment.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg corridor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg ege.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg ege100.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg ege11.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg ege66.png" afterDir="false" />
@@ -13,6 +15,7 @@
       <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg park2.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg park3.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg room.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg school.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/characters/hiro/hiro angry.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/characters/hiro/hiro calm.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/characters/hiro/hiro happy.png" afterDir="false" />

@@ -2,33 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ee12b7b-1e25-49f5-9377-cc3f214542aa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg apartment.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg corridor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg ege.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg ege100.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg ege11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg ege66.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg ege74.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg math class.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg math2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg park1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg park2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg park3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg room.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/bg1/bg school.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/characters/hiro/hiro angry.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/characters/hiro/hiro calm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/characters/hiro/hiro happy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/characters/hiro/hiro sad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/characters/sebostian/sebostian angry.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/characters/sebostian/sebostian calm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/characters/sebostian/sebostian happy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/characters/sebostian/sebostian sad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/characters/sofia/soniy angry.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/characters/sofia/soniy calm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Novel/game/images/arc1/characters/sofia/soniy happy.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Novel/errors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Novel/errors.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Novel/game/cache/bytecode-39.rpyb" beforeDir="false" afterPath="$PROJECT_DIR$/Novel/game/cache/bytecode-39.rpyb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Novel/game/cache/screens.rpyb" beforeDir="false" afterPath="$PROJECT_DIR$/Novel/game/cache/screens.rpyb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Novel/game/cache/shaders.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Novel/game/cache/shaders.txt" afterDir="false" />

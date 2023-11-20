@@ -1,39 +1,18 @@
-﻿# Вы можете расположить сценарий своей игры в этом файле.
-
-# Определение персонажей игры.
-define s = Character('Себастиан', color="#f54242", image='sebostian')
-define so = Character('Соня', color="#6342f5", image='soniy')
-define h = Character('Хиро', color="#f58d42", image='hiro')
-define v = Character('Доктор', color="#ebdb34", image='doc')
-# Вместо использования оператора image можете просто
-# складывать все ваши файлы изображений в папку images.
-# Например, сцену bg room можно вызвать файлом "bg room.png",
-# а eileen happy — "eileen happy.webp", и тогда они появятся в игре.
-init:
-    define count_test1 = 0
-    $ left2 = Position(xalign=0.1, yalign=1.1)
-    $ left3 = Position(xalign=0.4, yalign=1.1)
-    $ right2 = Position(xalign=0.8, yalign=1.1)
-# Игра начинается здесь:
-label start:
+﻿label start:
     # ПЕРВАЯ СЦЕНА
-    scene bg close
     "Урок математики. Себастиан спит."
+
+    scene bg mathclass1
+
     so "Себастиан вставай, там тест раздают."
-    scene bg math class
+
+    s "Оооааа, спать хочется!"
+
+    scene bg mathclass2 
     with fade
-    show soniy angry
-    with dissolve
-    so "Себастиан вставай, там тест раздают."
-    hide soniy with dissolve
-    show sebostian calm
-    with dissolve
-    s "Оооааа, спять хочется"
-    hide sebostian with dissolve
-    "Себастиан моргнул и перед ним появился тест"
-    scene bg math2
-    with fade
-    ""
+
+    "Решите тест. Не спешите и будьте внимательны!"
+
     menu:
         "Поставьте знак 1/25  ?  1/96"
 
@@ -42,12 +21,12 @@ label start:
         "=":
             "Себастиан кринжанул со знаний игрока"
         ">":
-            call caunt
+            $ count_test1 += 1
     menu:
         "Треугольник ABC  вписан  вокружность  с  центром .O Угол BAC  равен 32 .Найдите угол BOC. Ответ дайте в градусах."
 
         "64":
-            call caunt
+            $ count_test1 += 1
         "32":
             "Себастиан кринжанул со знаний игрока"
         "16":
@@ -58,7 +37,7 @@ label start:
         "8":
             "Себастиан кринжанул со знаний игрока"
         "6":
-            call caunt
+            $ count_test1 += 1
         "2":
             "Себастиан кринжанул со знаний игрока"
     menu:
@@ -67,23 +46,24 @@ label start:
         "6":
             "Себастиан кринжанул со знаний игрока"
         "12":
-            call caunt
+            $ count_test1 += 1
         "9":
             "Себастиан кринжанул со знаний игрока"
+    # выровнить текст, залезает на меню
     menu:
         "В сборнике билетов по биологии всего 25 билетов. Только в двух билетах встречается вопрос о грибах. На экзамене выпускнику достаётся один случайно выбранный билет из этого сборника. Найдите вероятность того, что в этом билете будет вопрос о грибах."
 
         "0,04":
             "Себастиан кринжанул со знаний игрока"
         "0,08":
-            call caunt
+            $ count_test1 += 1
         "0,02":
             "Себастиан кринжанул со знаний игрока"
     menu:
         "Решите (2+2)*2=?"
 
         "8":
-            call caunt
+            $ count_test1 += 1
         "6":
             "Себастиан кринжанул со знаний игрока"
         "2":
@@ -96,7 +76,7 @@ label start:
         "6":
             "Себастиан кринжанул со знаний игрока"
         "9":
-            call caunt
+            $ count_test1 += 1
     menu:
         "Найдите корень уравнения x^2+x+1=0"
 
@@ -105,12 +85,12 @@ label start:
         "-1":
             "Себастиан кринжанул со знаний игрока"
         "Нет решения":
-            call caunt
+            $ count_test1 += 1
     menu:
         "Симметричную игральную кость бросили 3 раза. Известно, что в сумме выпало 6 очков. Какова вероятность события «хотя бы раз выпало 3 очка»?"
 
         "0,6":
-            call caunt
+            $ count_test1 += 1
         "0,3":
             "Себастиан кринжанул со знаний игрока"
         "0,4":
@@ -118,334 +98,408 @@ label start:
         "Решите (2+2)*2=?"
 
     menu:
+        "Что говорит корова?"
+
         "Ничего":
-            call caunt
+            $ count_test1 += 1
         "Мяу":
             "Себастиан начинает мяукать и в шоке осознаёт, что коровы не мяукают"
         "Муууу":
             "Себастиан смутно догадывается, что коровы вообще не говорят, но изменить ответ уже поздно"
     "Себастиан решил тест и опять заснул."
-    #hide bg test
-    #with fade
+
     # ВТОРАЯ СЦЕНА
+
     scene bg park1
     with fade
-    show hiro calm at left2
-    show sebostian calm at right2
+    show h normal 1 at right2
+    show s normal 1 at left2
+
     "Себастиан и Хиро гуляют."
+
     if count_test1 <= 4:
-        h happy "Слабенько, Себастиан, слабенько! Какие планы на будущее после такой оценки?"
-        s angry "Эх, да у меня еще есть время поднажать. Может быть, в Урфу повезет?"
+        h normal 1 "Слабенько, Себастиан, слабенько! Какие планы на будущее после такой оценки?"
+        s sad 1 "Эх, да у меня еще есть время поднажать. Может быть, в Урфу повезет?"
     elif 5 <= count_test1 <= 6:
-        h happy "Ну, ты справился, Себастиан, но можно и лучше. Куда решил направить свои таланты?"
-        s calm "Нужно подтянуться, это точно. Может быть, попробую в Урфу?"
+        h smile 1 "Ну, ты справился, Себастиан, но можно и лучше. Куда решил направить свои таланты?"
+        s normal 1 "Нужно подтянуться, это точно. Может быть, попробую в Урфу?"
     elif 7 <= count_test1 <= 8:
-        h happy "Ну неплохо сдал, Себастиан, но тут еще есть куда прыгать! Какие планы на учебу?"
-        s calm "Да, неплохо, но есть к чему стремиться. Думаю, попробую в Урфу."
+        h smile 1  "Ну неплохо сдал, Себастиан, но тут еще есть куда прыгать! Какие планы на учебу?"
+        s normal 1  "Да, неплохо, но есть к чему стремиться. Думаю, попробую в Урфу."
     elif 9 <= count_test1 <= 10:
-        h happy "Эх, Себастиан, ты просто бог математики! Куда мечтаешь попасть?"
-        s happy "Что поделаешь, я просто гений! Думаю, в Урфу, наверное."
-    hide hiro with dissolve
-    hide sebostian with dissolve
+        h smile 1 "Эх, Себастиан, ты просто бог математики! Куда мечтаешь попасть?"
+        s smile 1 "Что поделаешь, я просто гений! Думаю, в Урфу, наверное."
+
+    hide h with dissolve
+    hide s with dissolve
+    
     scene bg park2
     with fade
-    show hiro calm at left2
-    show sebostian calm at right2
-    h calm "Хмм, Урфу же в Екатеринбурге, далековато"
+    show h normal 1 at right2
+    show s normal 1 at left2
+
+    h normal 1 "Хмм, Урфу же в Екатеринбурге, далековато!"
+
     menu:
         "Есть такое":
-            h happy "Ну в Екб вроде не плохо"
+            h normal 1 "Ну в Екб вроде не плохо."
         "Ничего страшного":
-            h happy "Ну в Екб вроде не плохо"
+            h normal 1 "Ну в Екб вроде не плохо."
         "Терпимо":
-            h happy "Ну в Екб вроде не плохо"
-    h calm "А куда конкретнее хочешь поступить?"
-    s calm "Хочу на программиста, они зарабатывают многа деняк и это ближе к моим интересам. Да еще и профессия перспективная!"
-    hide hiro with dissolve
-    hide sebostian with dissolve
+            h normal 1 "Ну в Екб вроде не плохо."
+
+    h normal 1 "А куда конкретнее хочешь поступить?"
+    s normal 1 "Хочу на программиста, они зарабатывают многа деняг и это ближе к моим интересам. Да еще и профессия перспективная!"
+
+    hide h  with dissolve
+    hide s with dissolve
+
     scene bg park3
     with fade
-    show hiro calm at left2
-    show sebostian calm at right2
-    h happy "Многа деняг? хых"
-    h angry "А я еще совсем не определился...."
-    h calm "Может на строителя или нефтяника.."
-    s calm "Не парся так,"
-    s calm "Посмотри что тебе интереснее"
-    h calm "Ну мне интересно как строят здания"
-    h happy "Хотелось бы небоскрёб свой построить"
-    s happy "А на нефтяника хочешь потому что они много зарабатывают?"
-    h happy "Ага, кто бы не хотел быть богатым?"
-    s calm "В каждой сфере можно заработать нормально"
-    s calm "Так что я бы посоветовал идти на строителя"
-    h calm "Ну да, мне это интереснее будет"
-    h calm "Может мне тоже тогда в Урфу поступить?"
-    s happy "Давай, будем вместе учиться!"
-    hide hiro with dissolve
-    hide sebostian with dissolve
-    ""
+
+    show h normal 1 at right2
+    show s normal 1 at left2
+
+    h smile 1 "Многа деняг? хых"
+    h sad 1 "А я еще совсем не определился...."
+    h normal 1 "Может на строителя или нефтяника..."
+    s normal 1 "Не парься так, посмотри что тебе интереснее."
+    h normal 1 "Ну мне интересно, как строят здания."
+    h smile 1 "Хотелось бы небоскрёб свой построить."
+    s smile 1 "А на нефтяника хочешь потому, что они много зарабатывают?"
+    h smile 1 "Ага, кто бы не хотел быть богатым?"
+    s normal 1 "В каждой сфере можно заработать прилично."
+    s normal 1 "Так что, я бы посоветовал идти на строителя."
+    h normal 1 "Ну да, мне это интереснее будет."
+    h normal 1 "Может мне тоже тогда в Урфу поступить?"
+    s smile 1 "Давай, будем вместе учиться!"
+
+    hide h  with dissolve
+    hide s with dissolve
 
     # ТРЕТЬЯ СЦЕНА
+
     scene bg corridor
     with fade
-    "Перед входом в кабинет"
-    show sebostian calm at right2
-    show hiro calm at left2
-    show soniy happy at left3
 
-    s "Ух... страшно сдавать егэ"
-    so "Не бойся мы готовились весь год, мы точно сдадим"
-    h "На этом жизнь не останавливается, не волнуйся"
+    show s sad 1 at left31
+    show so normal 1 at left3
+    show h normal 1 at right32
+    
+
+    s  "Ух... страшно сдавать егэ."
+    so "Не бойся мы готовились весь год, мы точно сдадим."
+    h "На этом жизнь не останавливается, не волнуйтесь."
+
     scene bg ege
     with fade
-    "Заходят в кабинет и пишут экзамен"
+
+    "Ребята заходят в кабинет и пишут экзамен."
+
     scene bg school
     with fade
-    show sebostian calm at right2
-    show hiro calm at left2
-    show soniy calm at left3
+    show s normal 1 at left31
+    show so normal 1 at left3
+    show h normal 1 at  right32
+    
 
     if count_test1 <= 4:
-        s angry "Я точно плохо сдал"
-        so "Ну не унывай, возможно проходной будет"
-        h "Да, там же не так трудно было"
+        s sad 1 "Я точно плохо сдал!"
+        so normal 1 "Ну не унывай, возможно проходной будет!"
+        h normal 1 "Да, там же не так трудно было."
     elif 5 <= count_test1 <= 6:
-        s "Ну вроде пойдёт, но много ошибок"
-        so "Ну хотя бы сдал, уже хорошо"
-        h happy "Хехе, а я вот думаю, что первую часть всю правильно написал"
+        s sad 1"Ну вроде пойдёт, но много ошибок."
+        so normal 1 "Ну хотя бы сдал, уже хорошо."
+        h smile 1 "Хехе, а я вот думаю, что первую часть всю правильно написал."
     elif 7 <= count_test1 <= 8:
-        s "Почти всё сделал, последнее задание не успел"
-        so "А ты смог параметр сделать?"
-        s angry "Не, думаю в нём допустил ошибку"
+        s normal 1 "Почти всё сделал, последнее задание не успел."
+        h normal 1 "А ты смог параметр сделать?"
+        s sad 1 "Не, думаю в нём допустил ошибку..."
     elif 9 <= count_test1 <= 10:
-        s happy "Вообще всё изи было. Спина только болит."
-        so "По мне так сложно было"
-        s angry "Непростой вариант, вторая часть все гробы"
+        s smile 1 "Вообще всё изи было. Спина только болит."
+        so angry 1 "По мне так сложно было!"
+        h angry 1 "Непростой вариант, вторая часть все гробы!"
 
     scene bg room
     with fade
-    "Дом Себастиана, получение результатов"
-    show sebostian calm at left2
+
+    "Дом Себастиана, получение результатов ЕГЭ."
+
     if count_test1 <= 2:
         scene bg ege11
         with fade
-        "Себастиан видит 11 баллов  и  разочарован"
+        "Себастиан видит 11 баллов и ему становится грустно."
         "GAME OVER, остался на второй год"
         return
+
     elif 3 <= count_test1 <= 6:
         scene bg ege66
         with fade
-        "Себастиан видит 66 баллов егэ по математике  и радуется"
-        s happy "Дворником что ли буду"
+        "Себастиан видит 66 баллов егэ по математике  и радуется."
+        s  "Дворником что ли буду?!"
+
     elif 7 <= count_test1 <= 8:
         scene bg ege74
         with fade
-        "Себастиан видит 74 баллов егэ по математике, расстроен что не 81"
-        s happy "Да я мегамозг, жалко что не 81"
+        "Себастиан видит 74 баллов егэ по математике, расстроен что не 81."
+        s  "Да я мегамозг, жалко что не 81!"
+
     elif 9 <= count_test1 <= 10:
         scene bg ege100
         with fade
-        "Себастиан видит 100 баллов егэ по математике, без эмоций смотрит на монитор"
-        s calm "Пфф, как это можно не сдать"
+        "Себастиан видит 100 баллов егэ по математике, без эмоций смотрит на монитор!"
+        s  "Пфф, как это можно не сдать!"
+
     # СЦЕНА 4
+
     scene bg apartment
     with fade
-    show sebostian calm at left2
-    show soniy calm at right2
-    s happy "Привет Соня, давай проходи"
-    so happy "Приветик"
-    so happy "Эй, Себастиан, это так здорово, что мы идем в университет! Куда ты собираешься поступать?"
+    show s smile 1 at left2
+    show so smile 1 at right2
+
+    s "Привет Соня, давай проходи!"
+    so "Приветик!"
+    so "Эй, Себастиан, это так здорово, что мы идем в университет! Куда ты собираешься поступать?"
     menu:
         "Ага, действительно здорово!":
-            s happy ""
-        "здорово, но немного грустно покидать школу.":
-            s calm ""
+            s "Я думаю о поступлении в Урфу. Это же самый крутой вуз на урале!"
+        "Здорово, но немного грустно покидать школу.":
+            s "Я думаю о поступлении в Урфу. Это же самый крутой вуз на урале!"
+
+    hide so with dissolve
+    hide s with dissolve
+
     scene bg room
-    with fade
-    show sebostian calm at left3
-    show soniy calm at right2
-    s calm "Я думаю о поступлении в Урфу. Это же самый крутой вуз на урале!"
-    so happy "О, Урфу звучит интересно!"
-    s calm "А ты, Соня, куда решила поступать?"
-    so calm "Я выбрала МГУ. Хочу пожить в Москве. МГУ - топ один вуз в стране, оттуда точно дураком не выпустишься."
-    s happy "Москва, да там будет весело."
-    so angry "Но, Себастиан, это означает, что мы долго не будем видеться"
-    s calm "Да, я об этом подумал. Но мы всегда можем оставаться на связи и приезжать друг к другу в гости, верно?"
-    so happy "Конечно! Ничто не может разрушить нашу дружбу. Мы всегда будем поддерживать связь и делиться новостями."
-    s happy "Точно, ничто не сможет нас разлучить, даже если мы будем далеко друг от друга."
+
+    show s normal 1 at left2
+    show so smile 1 at right2
+    
+    so smile 1 "О, Урфу звучит интересно!"
+    s normal 1 "А ты, Соня, куда решила поступать?"
+    so normal 1 "Я выбрала МГУ. Хочу пожить в Москве. МГУ - топ один вуз в стране, оттуда точно дураком не выпустишься."
+    s smile 1 "Москва, да там будет весело."
+    so angry 1 "Но, Себастиан, это означает, что мы долго не будем видеться!"
+    s normal 1 "Да, я об этом подумал. Но мы всегда можем оставаться на связи и приезжать друг к другу в гости, верно?"
+    so smile 1 "Конечно! Ничто не может разрушить нашу дружбу. Мы всегда будем поддерживать связь и делиться новостями."
+    s smile 1 "Точно, ничто не сможет нас разлучить, даже если мы будем далеко друг от друга."
+
     scene bg apartment
     with fade
-    show sebostian calm at left2
-    show soniy calm at right2
-    so calm "Ну я пошла, пока пока"
-    s calm "Пока"
-    hide soniy with dissolve
+    show s normal 1 at left2
+    show so normal 1 at right2
+    so "Ну я пошла, пока пока!"
+    s "Пока!"
+
+    hide so with dissolve
+
     "Соня уходит домой"
+
     # СЦЕНА 5
-    scene bg black
-    with fade
+
+    scene black
+
     "Хиро пишет в вк Себастиану."
-    scene bg vk
+
+    scene bg message1
     with fade
-    h "Ты  когда планируешь ехать отдавать документы?"
+
     menu:
-        "Вот 10 августа собрание будет, тогда и отдам":
-            h  "Оо я туда тоже хотел поехать, давай вместе"
-            s "Оо, давай"
-        "До конца августа время ещё есть, успею":
-            h  "Там 10 августа собрание будет, давай может вместе поедем?"
+        "Вот 10 августа собрание будет, тогда и отдам.":
+
+            scene bg message11
+            with fade
+            scene bg message12
+            with fade
+            scene bg message13
+            with fade
+            scene bg message14
+
+        "До конца августа время ещё есть, успею.":
+
+            scene bg message21
+            with fade
+            scene bg message22
+            with fade
             menu:
-                "Оо, давай":
-                    call out
-                "Почему бы и нет":
+                "Оо, давай.":
+                    scene bg message23
+                    with fade
+                    scene bg message24
+                "Почему бы и нет.":
+                    #НУЖНЫ ФОНЫ
                     call out
         "Ещё не думал даже когда":
-            h  "Там 10 августа собрание будет, давай может вместе поедем?"
+
+            scene bg message31
+            scene bg message32
             menu:
                 "Оо, давай":
-                    call out
+                    #НУЖНЫ ФОНЫ
+                    call out 
                 "Почему бы и нет":
-                    call out
-    h "Ну решили тогда"
-    scene bg car
+                    scene bg message33
+                    with fade
+                    scene bg message34
+   
+
+    scene bg car1
     with fade
-    show sebostian calm at left2
-    show hiro calm at right2
-    s "У нас ещё много времени до собрания, давай сходим медкомиссию для общежития пройдём"
-    h "Да, давай"
-    scene bg hostel9
+
+    ""
+
+    scene bg car2
     with fade
-    show sebostian calm at left2
-    show hiro calm at right2
-    h happy "Ооо та самая 9 общага"
-    s happy "Вау, хотел бы там жить"
-    h calm "Да она одна из самых новых, там до нас почти никто не жил"
+
+    "Себастиан и Хиро едут подавать документы в Екатеринбург."
+    "Себастиан и Хиро в Екатеринбурге."
+
+    scene bg park1
+    show s normal 1 at left2
+    show h normal 1 at right2
+
+    s "У нас ещё много времени до собрания, давай сходим медкомиссию для общежития пройдём."
+    h "Да, давай!"
+
+    scene bg obshaga9
+    with fade
+
+    show s smile 1 at left2
+    show h smile 1 at right2
+
+    h  "Ооо! Та самая 9 общага!!!"
+    s  "Вау, хотел бы там жить."
+    h normal 1  "Да, она одна из самых новых, там до нас почти никто не жил."
+
+    #НУЖЕН ФОН 11 общаги
+
     scene bg hoste11
     with fade
-    show sebostian calm at left2
-    show hiro calm at right2
-    s happy "Оо а это 11 общага, там удобная скамейка рядом"
-    h sad "Ну она постарее выглядит,  коридорного типа"
-    s calm "Ну я скорее всего там буду, что бы в 9 попасть надо высокие баллы по егэ"
-    h calm "Ну главное что бы в общежитие заселили, а то тут можно за 15 минут до пары проснуться и не опоздать"
-    s happy "Хаха"
-    scene bg outmed
+    show s smile 1 at left2
+    show h normal 1 at right2
+
+    s  "Ооo, а это 11 общага, там удобная скамейка рядом."
+    h  "Ну она постарее выглядит,  коридорного типа."
+    s normal 1 "Ну я скорее всего там буду, чтобы в 9 попасть надо высокие баллы по егэ."
+    h normal 1 "Ну главное, чтобы в общежитие заселили, а то тут можно за 15 минут до пары проснуться и не опоздать."
+    s smile 1 "Хахахаха"
+
+    scene bg medsanchast
     with fade
-    show sebostian calm at left2
-    show hiro calm at right2
-    "Себастиан и Хиро заходят в медсанчасть"
-    scene bg inmed
+
+    "Себастиан и Хиро заходят в медсанчасть."
+
+    scene bg medsanchast1
     with fade
-    show sebostian calm at left2
-    show hiro calm at right2
-    "Себастиан и Хиро расходятся по разным кабинетам"
-    scene bg inmedroom
+
+    "Себастиан и Хиро расходятся по разным кабинетам."
+
+    scene bg medsanchast2
     with fade
-    show sebostian calm at left2
-    show doc calm at right2
+
+    show s normal 1 at center
+    
     s "Можно войти?"
-    v "Да, заходи"
-    v "Так Себастиан вы с Сургута, из 5469160029166829 школы"
-    v happy "хм длинное название школы"
+    d "Да, заходи-те."
+    d "Так, Себастиан, вы с Сургута, из 5469160029166829 школы?"
+    d "Xммм, длинное название школы."
+
     menu:
         "Мне много кто так говорил":
-            v "Так очень трудно запомнить"
-            s happy "да чего там 5469160029166829"
+            d "Так очень трудно запомнить."
+            s smile 1 "Да чего там, всего лишь 16 чисел."
         "Промолчать":
             call out
-    "Проходит некоторое время"
-    scene bg inmedroom
+
+    "Проходит некоторое время."
+
+    d "Так, всё можете идти."
+    s "Спасибо, до свидание."
+
+    scene bg medsanchast
     with fade
-    show sebostian calm at left2
-    show doc calm at right2
-    v "Так всё можете идти"
-    s "Спасибо до свидание."
-    scene bg outmed
-    with fade
-    show sebostian calm at left2
-    show hiro calm at right2
-    h "Как-то проще чем я думал"
+
+    show s normal 1 at left2
+    show h normal 1 at right2
+
+    h "Как-то проще, чем я думал."
+
     menu:
-        "Ага, я думал труднее будет":
-            hide sebostian calm
-            show sebostian happy at left2
-            h "Так  вроде уже на собрание надо идти"
+        "Ага, я думал труднее будет.":
+            show s smile 1 at left2
+            h "Так, вроде уже на собрание надо идти."
         "Согласен":
-            h "Так  вроде уже на собрание надо идти"
-    scene bg guk
+            h "Так, вроде уже на собрание надо идти."
+
+    scene bg guk1
     with fade
-    show sebostian calm at left2
-    show hiro calm at right2
-    "Входят в ГУК"
-    scene bg inguk
+
+    "Себастиан и Хиро входят в ГУК."
+
+    scene bg guk2
     with fade
-    show sebostian calm at left2
-    show hiro calm at right2
-    "Идут в актовый зал"
-    scene bg gukhall
+
+    "Идут в актовый зал."
+    
+    scene bg guk3
     with fade
-    show sebostian calm at left2
-    show hiro calm at right2
-    "Проходит плодотворное собрание"
-    scene bg inguk
+
+    "Проходит плодотворно собрание."
+
+    scene bg guk2
     with fade
-    show sebostian happy at left2
-    show hiro calm at right2
-    h happy "Какой там зал большой был"
+
+    show s smile 1 at left2
+    show h  smile 1 at right2
+
+    h "Какой там зал большой был."
     menu:
-        "Так и само здание универа большое":
+        "Так и само здание универа большое.":
             call out
         "Так оно просто гиганское.":
             call out
+
     h "Пойдём отнесём может оригиналы документов?"
-    s calm "Пойдём"
-    scene bg documents
+    s normal 1 "Пойдём."
+
+    scene black
     with fade
-    show sebostian calm at left2
-    show hiro calm at right2
-    "Себастиан и Хиро отдают документы"
-    scene bg guk
+    
+    "Себастиан и Хиро отдают документы."
+
+    scene bg guk1
     with fade
-    show sebostian calm at left2
-    show hiro calm at right2
-    h "Так а теперь можно поехать домой или пойти гулять."
+
+    show s normal 1 at left2
+    show h  normal 1 at right2
+
+    h "Так, а теперь можно поехать домой или пойти гулять."
     menu:
         "Пойдём гулять":
-            scene bg e1
+            scene bg ekb1
             with fade
-            show sebostian calm at left2
-            show hiro calm at right2
+
             "Топ-Топ-Топ"
-            scene bg e2
+
+            scene bg ekb2
             with fade
-            show sebostian calm at left2
-            show hiro calm at right2
+    
             "Топ-Топ-Топ"
-            scene bg e3
+
+            scene bg ekb3
             with fade
-            show sebostian calm at left2
-            show hiro calm at right2
+            
             "Топ-Топ-Топ"
-            s happy "Так а теперь пора и домой"
+
+            show s smile 1 at center
+            s "Так, а теперь пора и домой."
         "Поехали домой":
             call out
-    scene bg carout
+
+    scene bg car1
     with fade
-    show sebostian calm at left2
-    show hiro calm at right2
-    scene bg caraction
-    with fade
-    # АРКА 2
-    # СЦЕНА 1
+    
+    scene bg car2
+
 
 label out:
     return
-
-label caunt:
-    $ count_test1 = count_test1 + 1
-    return
-
-# git remote add origin https://github.com/GlebZinovyev/Novel.git ls -al
-# git remote add origin https://github.com/GlebZinovyev/Novel.git    git push -f origin main
-# rm -rf .git
-# rmdir .git git commit -m "Novel" git add . git commit -m "first arc"

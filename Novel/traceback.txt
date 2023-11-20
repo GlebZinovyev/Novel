@@ -1,0 +1,32 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 393, in script
+    show s normal 1 at medium
+  File "game/script.rpy", line 393, in <module>
+    show s normal 1 at medium
+NameError: name 'medium' is not defined
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 393, in script
+    show s normal 1 at medium
+  File "/Users/yurazhilin/Desktop/renpy-8.1.3-sdk/renpy/ast.py", line 1428, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+  File "/Users/yurazhilin/Desktop/renpy-8.1.3-sdk/renpy/ast.py", line 1387, in show_imspec
+    at_list = [ renpy.python.py_eval(i) for i in at_list ]
+  File "/Users/yurazhilin/Desktop/renpy-8.1.3-sdk/renpy/ast.py", line 1387, in <listcomp>
+    at_list = [ renpy.python.py_eval(i) for i in at_list ]
+  File "/Users/yurazhilin/Desktop/renpy-8.1.3-sdk/renpy/python.py", line 1153, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/Users/yurazhilin/Desktop/renpy-8.1.3-sdk/renpy/python.py", line 1146, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 393, in <module>
+    show s normal 1 at medium
+NameError: name 'medium' is not defined
+
+macOS-14.0-arm64-arm-64bit arm64
+Ren'Py 8.1.3.23091805
+Novel 1.0
+Mon Nov 20 09:43:54 2023

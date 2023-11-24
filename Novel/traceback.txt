@@ -1,32 +1,40 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 393, in script
-    show s normal 1 at medium
-  File "game/script.rpy", line 393, in <module>
-    show s normal 1 at medium
-NameError: name 'medium' is not defined
+  File "game/script.rpy", line 4, in script
+    play music fon11
+  File "renpy/common/000statements.rpy", line 123, in execute_play_music
+    renpy.music.play(_audio_eval(p["file"]),
+  File "renpy/common/000statements.rpy", line 32, in _audio_eval
+    return eval(expr, locals=store.audio.__dict__)
+  File "game/script.rpy", line 4, in <module>
+    play music fon11
+NameError: name 'fon11' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 393, in script
-    show s normal 1 at medium
-  File "/Users/yurazhilin/Desktop/renpy-8.1.3-sdk/renpy/ast.py", line 1428, in execute
-    show_imspec(self.imspec, atl=getattr(self, "atl", None))
-  File "/Users/yurazhilin/Desktop/renpy-8.1.3-sdk/renpy/ast.py", line 1387, in show_imspec
-    at_list = [ renpy.python.py_eval(i) for i in at_list ]
-  File "/Users/yurazhilin/Desktop/renpy-8.1.3-sdk/renpy/ast.py", line 1387, in <listcomp>
-    at_list = [ renpy.python.py_eval(i) for i in at_list ]
+  File "game/script.rpy", line 4, in script
+    play music fon11
+  File "/Users/yurazhilin/Desktop/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
+    self.call("execute")
+  File "/Users/yurazhilin/Desktop/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/Users/yurazhilin/Desktop/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 123, in execute_play_music
+    renpy.music.play(_audio_eval(p["file"]),
+  File "renpy/common/000statements.rpy", line 32, in _audio_eval
+    return eval(expr, locals=store.audio.__dict__)
   File "/Users/yurazhilin/Desktop/renpy-8.1.3-sdk/renpy/python.py", line 1153, in py_eval
     return py_eval_bytecode(code, globals, locals)
   File "/Users/yurazhilin/Desktop/renpy-8.1.3-sdk/renpy/python.py", line 1146, in py_eval_bytecode
     return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 393, in <module>
-    show s normal 1 at medium
-NameError: name 'medium' is not defined
+  File "game/script.rpy", line 4, in <module>
+    play music fon11
+NameError: name 'fon11' is not defined
 
 macOS-14.0-arm64-arm-64bit arm64
 Ren'Py 8.1.3.23091805
 Novel 1.0
-Mon Nov 20 09:43:54 2023
+Wed Nov 22 23:49:13 2023

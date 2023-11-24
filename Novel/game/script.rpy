@@ -1,5 +1,8 @@
-﻿label start:
+﻿label start: 
     # ПЕРВАЯ СЦЕНА
+    
+    play music fon11 fadein 3.0
+
     "Урок математики. Себастиан спит."
 
     scene bg mathclass1
@@ -108,7 +111,10 @@
             "Себастиан смутно догадывается, что коровы вообще не говорят, но изменить ответ уже поздно"
     "Себастиан решил тест и опять заснул."
 
+    stop music fadeout 2
     # ВТОРАЯ СЦЕНА
+
+    play music fon21 fadein 2
 
     scene bg park1
     with fade
@@ -138,46 +144,51 @@
     show h normal 1 at right2
     show s normal 1 at left2
 
-    h normal 1 "Хмм, Урфу же в Екатеринбурге, далековато!"
+    h "Хмм, Урфу же в Екатеринбурге, далековато!"
 
     menu:
         "Есть такое":
-            h normal 1 "Ну в Екб вроде не плохо."
+            h  "Ну в Екб вроде не плохо."
         "Ничего страшного":
-            h normal 1 "Ну в Екб вроде не плохо."
+            h  "Ну в Екб вроде не плохо."
         "Терпимо":
-            h normal 1 "Ну в Екб вроде не плохо."
+            h  "Ну в Екб вроде не плохо."
 
-    h normal 1 "А куда конкретнее хочешь поступить?"
-    s normal 1 "Хочу на программиста, они зарабатывают многа деняг и это ближе к моим интересам. Да еще и профессия перспективная!"
+    h  "А куда конкретнее хочешь поступить?"
+    s  "Хочу на программиста, они зарабатывают многа деняг и это ближе к моим интересам. Да еще и профессия перспективная!"
 
-    hide h  with dissolve
+    hide h with dissolve
     hide s with dissolve
 
     scene bg park3
     with fade
 
-    show h normal 1 at right2
+    show h smile 1 at right2
     show s normal 1 at left2
 
-    h smile 1 "Многа деняг? хых"
+    h "Многа деняг? хых"
     h sad 1 "А я еще совсем не определился...."
     h normal 1 "Может на строителя или нефтяника..."
     s normal 1 "Не парься так, посмотри что тебе интереснее."
-    h normal 1 "Ну мне интересно, как строят здания."
+    h  "Ну мне интересно, как строят здания."
     h smile 1 "Хотелось бы небоскрёб свой построить."
     s smile 1 "А на нефтяника хочешь потому, что они много зарабатывают?"
     h smile 1 "Ага, кто бы не хотел быть богатым?"
     s normal 1 "В каждой сфере можно заработать прилично."
-    s normal 1 "Так что, я бы посоветовал идти на строителя."
-    h normal 1 "Ну да, мне это интереснее будет."
+    s "Так что, я бы посоветовал идти на строителя."
+    h "Ну да, мне это интереснее будет."
     h normal 1 "Может мне тоже тогда в Урфу поступить?"
     s smile 1 "Давай, будем вместе учиться!"
 
     hide h  with dissolve
     hide s with dissolve
 
-    # ТРЕТЬЯ СЦЕНА
+    stop music fadeout 1
+    # # ТРЕТЬЯ СЦЕНА
+
+
+
+    play music fon31 fadein 3
 
     scene bg corridor
     with fade
@@ -198,7 +209,7 @@
 
     scene bg school
     with fade
-    show s normal 1 at left31
+    show s sad 1 at left31
     show so normal 1 at left3
     show h normal 1 at  right32
     
@@ -229,6 +240,11 @@
         scene bg ege11
         with fade
         "Себастиан видит 11 баллов и ему становится грустно."
+
+        window hide
+        scene black
+        pause
+
         "GAME OVER, остался на второй год"
         return
 
@@ -250,7 +266,12 @@
         "Себастиан видит 100 баллов егэ по математике, без эмоций смотрит на монитор!"
         s  "Пфф, как это можно не сдать!"
 
+    stop music fadeout 1
     # СЦЕНА 4
+
+    play sound door 
+
+    play music fon41 fadein 3.0
 
     scene bg apartment
     with fade
@@ -283,6 +304,7 @@
     so smile 1 "Конечно! Ничто не может разрушить нашу дружбу. Мы всегда будем поддерживать связь и делиться новостями."
     s smile 1 "Точно, ничто не сможет нас разлучить, даже если мы будем далеко друг от друга."
 
+
     scene bg apartment
     with fade
     show s normal 1 at left2
@@ -294,10 +316,12 @@
 
     "Соня уходит домой"
 
+    stop music fadeout 2
     # СЦЕНА 5
 
     scene black
 
+    play music fon51 fadein 2
     "Хиро пишет в вк Себастиану."
 
     scene bg message1
@@ -327,7 +351,7 @@
                     scene bg message24
                 "Почему бы и нет.":
                     #НУЖНЫ ФОНЫ
-                    call out
+                    pass
         "Ещё не думал даже когда":
 
             scene bg message31
@@ -335,23 +359,30 @@
             menu:
                 "Оо, давай":
                     #НУЖНЫ ФОНЫ
-                    call out 
+                    pass 
                 "Почему бы и нет":
                     scene bg message33
                     with fade
                     scene bg message34
-   
+
+    stop music fadeout 2
+
+    play music car fadein 1
 
     scene bg car1
     with fade
 
-    ""
+    pass
 
     scene bg car2
     with fade
 
     "Себастиан и Хиро едут подавать документы в Екатеринбург."
     "Себастиан и Хиро в Екатеринбурге."
+
+    stop music fadeout 2.0
+
+    play music fon51 fadein 1.0
 
     scene bg park1
     show s normal 1 at left2
@@ -370,12 +401,15 @@
     s  "Вау, хотел бы там жить."
     h normal 1  "Да, она одна из самых новых, там до нас почти никто не жил."
 
-    #НУЖЕН ФОН 11 общаги
+    
 
-    scene bg hoste11
+    scene bg obshaga11
     with fade
-    show s smile 1 at left2
-    show h normal 1 at right2
+
+    ""
+
+    show s smile 1 at left2 
+    show h normal 1 at right2 
 
     s  "Ооo, а это 11 общага, там удобная скамейка рядом."
     h  "Ну она постарее выглядит,  коридорного типа."
@@ -408,7 +442,7 @@
             d "Так очень трудно запомнить."
             s smile 1 "Да чего там, всего лишь 16 чисел."
         "Промолчать":
-            call out
+            pass
 
     "Проходит некоторое время."
 
@@ -454,9 +488,9 @@
     h "Какой там зал большой был."
     menu:
         "Так и само здание универа большое.":
-            call out
+            pass
         "Так оно просто гиганское.":
-            call out
+            pass
 
     h "Пойдём отнесём может оригиналы документов?"
     s normal 1 "Пойдём."
@@ -485,7 +519,7 @@
     
             "Топ-Топ-Топ"
 
-            scene bg ekb3
+            scene bg ekb3 
             with fade
             
             "Топ-Топ-Топ"
@@ -493,13 +527,24 @@
             show s smile 1 at center
             s "Так, а теперь пора и домой."
         "Поехали домой":
-            call out
+            pass
+            
+    stop music fadeout 2.0
+    
+    play music car fadein 1
 
     scene bg car1
     with fade
     
+    ""
+
     scene bg car2
+    with fade
+
+    stop music fadeout 1
+
+    jump arka2
+
+    
 
 
-label out:
-    return

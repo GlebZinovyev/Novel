@@ -3,7 +3,7 @@ define so = Character('Соня', color="#6342f5", image='so')
 define h = Character('Хиро', color="#f58d42", image='h')
 define d = Character('Доктор', color="#ebdb34", image='d')
 define sos = Character('Сосед', color="#ff00c8", image='sos')
-
+define n = Character(None, kind=nvl)
 define audio.alarm = "music/alarm.mp3"
 define audio.cardoor = "music/cardoor.mp3"
 define audio.car = "music/car.mp3"
@@ -23,7 +23,10 @@ define audio.fon62 = 'music/fon62.mp3'
 define audio.fon72 = 'music/fon72.mp3'
 define audio.vzhooh = 'music/vzhooh.mp3'
 define audio.welder = 'music/welder.mp3'
-
+define audio.fon4 = 'music/fon4.mp3'
+define audio.fon13 = 'music/fon13.mp3'
+define audio.fon23 = 'music/fon23.mp3'
+define audio.fonend = 'music/fonend.mp3'
 
 init:
     define count_test1 = 0

@@ -1,6 +1,7 @@
-﻿label start: 
+﻿
     # ПЕРВАЯ СЦЕНА
-    
+label start:    
+
     play music fon11 fadein 3.0
 
     "Урок математики. Себастиан спит."
@@ -52,7 +53,7 @@
             $ count_test1 += 1
         "9":
             "Себастиан кринжанул со знаний игрока"
-    # выровнить текст, залезает на меню
+    
     menu:
         "В сборнике билетов по биологии всего 25 билетов. Только в двух билетах встречается вопрос о грибах. На экзамене выпускнику достаётся один случайно выбранный билет из этого сборника. Найдите вероятность того, что в этом билете будет вопрос о грибах."
 
@@ -197,7 +198,7 @@
     show so normal 1 at left3
     show h normal 1 at right32
     
-
+    pause
     s  "Ух... страшно сдавать егэ."
     so "Не бойся мы готовились весь год, мы точно сдадим."
     h "На этом жизнь не останавливается, не волнуйтесь."
@@ -224,7 +225,7 @@
         h smile 1 "Хехе, а я вот думаю, что первую часть всю правильно написал."
     elif 7 <= count_test1 <= 8:
         s normal 1 "Почти всё сделал, последнее задание не успел."
-        h normal 1 "А ты смог параметр сделать?"
+        h  "А ты смог параметр сделать?"
         s sad 1 "Не, думаю в нём допустил ошибку..."
     elif 9 <= count_test1 <= 10:
         s smile 1 "Вообще всё изи было. Спина только болит."
@@ -241,11 +242,13 @@
         with fade
         "Себастиан видит 11 баллов и ему становится грустно."
 
+        play music fonend fadein 1.0
         window hide
-        scene black
+        scene bg gameover with fade
         pause
-
-        "GAME OVER, остался на второй год"
+        "GAME OVER, Себастиан остался на второй год"
+        scene title1 with fade
+        pause
         return
 
     elif 3 <= count_test1 <= 6:
@@ -273,6 +276,7 @@
 
     play music fon41 fadein 3.0
 
+    "Себастиан идет в гости"
     scene bg apartment
     with fade
     show s smile 1 at left2
@@ -283,7 +287,7 @@
     so "Эй, Себастиан, это так здорово, что мы идем в университет! Куда ты собираешься поступать?"
     menu:
         "Ага, действительно здорово!":
-            s "Я думаю о поступлении в Урфу. Это же самый крутой вуз на урале!"
+            s "Я думаю о поступлении в Урфу. Это же самый крутой вуз на Урале!"
         "Здорово, но немного грустно покидать школу.":
             s "Я думаю о поступлении в Урфу. Это же самый крутой вуз на урале!"
 
@@ -332,38 +336,55 @@
 
             scene bg message11
             with fade
+            pause
             scene bg message12
             with fade
+            pause
             scene bg message13
             with fade
+            pause
             scene bg message14
 
         "До конца августа время ещё есть, успею.":
 
             scene bg message21
             with fade
+            pause
             scene bg message22
             with fade
+            pause
             menu:
                 "Оо, давай.":
                     scene bg message23
                     with fade
+                    pause
                     scene bg message24
                 "Почему бы и нет.":
-                    #НУЖНЫ ФОНЫ
-                    pass
+                    scene bg message232
+                    with fade
+                    pause
+                    scene bg message242
+                    with fade
+                    pause
+
         "Ещё не думал даже когда":
 
-            scene bg message31
-            scene bg message32
+            scene bg message31 with fade
+            pause
+            scene bg message32 with fade
+            pause
             menu:
                 "Оо, давай":
-                    #НУЖНЫ ФОНЫ
-                    pass 
+                    scene bg message331 with fade
+                    pause
+                    scene bg message341 with fade
+                    pause 
                 "Почему бы и нет":
-                    scene bg message33
+                    scene bg message332
                     with fade
-                    scene bg message34
+                    pause
+                    scene bg message342 with fade
+                    pause
 
     stop music fadeout 2
 
@@ -406,7 +427,7 @@
     scene bg obshaga11
     with fade
 
-    ""
+    pause
 
     show s smile 1 at left2 
     show h normal 1 at right2 
@@ -536,10 +557,11 @@
     scene bg car1
     with fade
     
-    ""
+    pause
 
     scene bg car2
     with fade
+    pause
 
     stop music fadeout 1
 

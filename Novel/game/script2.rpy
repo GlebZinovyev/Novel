@@ -1,5 +1,4 @@
 # Арка 2 
-
 label arka2:
 
     play music fon12 fadein 2
@@ -7,19 +6,16 @@ label arka2:
     # Сцена 1
     scene black with fade
     
-
     "Хиро пишет в вк Себастиану."
 
-#подумать как замедлить появление картинок
-
     scene bg vk1 with fade
-    
+    pause
     scene bg vk2 with fade
-    
+    pause
     scene bg vk3 with fade
-    
+    pause
     scene bg vk4 with fade
-    
+    pause
     scene bg vk5 with fade
 
     "Себастиан и Хиро поехали заселяться."
@@ -28,7 +24,7 @@ label arka2:
 
     scene bg car1 with fade
 
-    ""
+    pause
      
     scene bg car2 with fade
 
@@ -69,9 +65,9 @@ label arka2:
 
     sos "Вставай, Cебастиан!! У тебя будильник уже 1,5 часа орёт."
 
-    stop music fadeout 1.0
+    stop music fadeout 3.0
 
-    play music fon22 fadein 1.0
+    play music fon22 fadein 3.0
 
     scene bg obshagaroom with fade
 
@@ -95,7 +91,6 @@ label arka2:
 
 label napare:
 
-    #фон заходить в гук
     scene bg guk1 with fade
 
     "Пропуск показываем"
@@ -103,24 +98,33 @@ label napare:
     show s normal 2 
     s "Ещё 4 минуты, успеваю. Надо быстрее на физику идти."
 
-    #Сцена аудитироии
+    scene bg audience2 with fade
 
     s sad 2 "Опять писать эту лекцию 1,5 часа. Может оно мне и не надо?"
 
     menu:
         "Можно не писать.":
             s normal 2 "В телефоне может тогда посижу."
+            n '''Первое начало термодинамики утверждает: энергия не может быть создана или уничтожена в изолированной системе; она может только преобразовываться из одной формы в другую.'''
+            n ''' Математически это можно выразить следующим образом, где:'''
+            n '''— изменение внутренней энергии системы;'''
+            n '''— тепловой обмен с окружающей средой (положительный, когда система абсорбирует тепло);'''
+            n '''— работа, совершаемая системой над окружающей средой (положительная, когда система совершает работу).'''
+            nvl hide
+        
         "Надо писать.":
+            n '''Первое начало термодинамики утверждает: энергия не может быть создана или уничтожена в изолированной системе; она может только преобразовываться из одной формы в другую.'''
+            n ''' Математически это можно выразить следующим образом, где:'''
+            n '''— изменение внутренней энергии системы;'''
+            n '''— тепловой обмен с окружающей средой (положительный, когда система абсорбирует тепло);'''
+            n '''— работа, совершаемая системой над окружающей средой (положительная, когда система совершает работу).'''
+            nvl hide
             $ count_test1 += 5
             s normal 2 "Всё записать не успею, надо сокращать."
-
-    #Первое начало термодинамики утверждает:
 
     play sound vzhooh fadein 1.0
 
     s smile 2 "Так, теперь можно и в общагу."
-
-   
 
     jump scene3
 
@@ -149,7 +153,10 @@ label scene3:
         "Яичница":
             s "Давай яичницу."
             sos "Окей."
-            # scene kitchen
+
+            scene bg kitchen with fade
+            show s normal 2 at center
+
             s "Наливаем в сковородку масло."
             s "Разбиваем яйцо и жарим."
             s "Ждём и готово."
@@ -157,7 +164,10 @@ label scene3:
             s "Давай пасту болоньезе."
             sos "Ооо угостишь?"
             s "Да."
-            # scene kitchen
+
+            scene bg kitchen with fade
+            show s normal 2 at center
+
             s "В начале готовим соус."
             s "Нарежем лук и чеснок и пожарим в оливковом масле."
             s "Туда же фарш и жарим 10 минут."
@@ -169,10 +179,13 @@ label scene3:
             sos "Уже готова?"
             s "Ага, пойдём кушать."
         "Дошик":
+
+            show s normal 2 at center
+
             s "Ну просто дошик тогда."
             sos "Лень готовить?"
             s "Угу"
-            s "Так берём открываем дошик."
+            s "Так, берём открываем дошик."
             s "Заливаем горячей водой."
             s "Готово, осталось приятного аппетита пожелать"
     
@@ -185,14 +198,12 @@ label scene3:
     return 
 
 label scene4:
-    
+ 
     play music fon42 fadein 2.0
 
-    scene black
+    scene bg ulearn
 
     "Тест по Ulearn"
-
-    #курс по ulearn
 
     s "Дальше будет тестик по этим терминам, может мне тогда их не закрывать."
 
@@ -238,7 +249,7 @@ label scene5:
 
     scene bg obshagaroom with fade
 
-    ""
+    pause
 
     stop music fadeout 2.0
 
@@ -246,7 +257,15 @@ label scene5:
 
     s "Надо быстрее одеваться и не опоздать."
 
-    #перемещение в кабинет
+    scene bg guk1 with fade
+
+    pause
+
+    scene bg garderob with fade
+
+    s "Одежду надо сдать в гардероб"
+
+    scene bg audience3 with fade
     
     "У каждого будет индивидуальный билет. Ваша задача написать ответы на двойном листочке и сдать.
     Задачи с подробными решениями !!!"
@@ -301,11 +320,11 @@ label test:
         "1. Как в языке C# называют именованную последовательность инструкций?"
 
         "Функция":
-            $ fortest += 1
             "Продолжай"
         "Подпрограмма":
             "Продолжай"
         "Метод":
+            $ fortest += 1
             "Продолжай"
         "Подпрограмма":
             "Продолжай"
@@ -326,7 +345,7 @@ label test:
             "Все идет по плануу"
     
     menu:
-        "3. Что перечисляется в секции References (ссылки) проекта в Visual Studi?"
+        "3. Что перечисляется в секции References (ссылки) проекта в Visual Studio?"
 
         "Пространства имён, доступные для использования в кодовых файлах проекта.":
             $ fortest += 1
@@ -369,8 +388,11 @@ label scene6:
 
     play music fon62 fadein 2
     
+    scene bg obshagaroom with fade
+
     "Звонок от Хиро."
 
+    show s smile  2
     s "Привет Себастиан."
 
     h "Привет."
@@ -391,10 +413,9 @@ label scene6:
 
     h "Да, пошли."
 
-    "В пятницу"
+    "В пятницу" 
 
-    show s smile 2 at left2
-    show h smile 2 at right2
+    scene bg vremyakar1 with fade
 
     s "Вау, красиво тут."
 
@@ -402,8 +423,14 @@ label scene6:
 
     s "Да, пошли."
 
-    # картинки время карьеры
+    scene bg vremyakar2 with fade
 
+    pause 
+
+    scene bg vremyakar4 with fade
+
+    pause 
+     
     show s normal 2 at left2
     show h normal 2 at right2
 
@@ -411,10 +438,10 @@ label scene6:
 
     s "Ооо, я бы послушал."
 
-    #выступление
+    scene bg vremyakar3 with fade
 
     "Выступление"
-
+ 
     show s normal 2 at left2
     show h normal 2 at right2
 
@@ -433,23 +460,37 @@ label scene6:
 
 label scene7:
 
+
     play music fon72 fadein 2.0
-    # перед гуком
+    
+    scene bg graduation with fade
 
     "Выпуск из универа"
 
     if 3 <= count_test1 <= 20:
         
-        # концовка
-        "Спустя два года..."
-        "Отчислен за плохую успеваемость..."
-        
+        scene black with fade
 
+        play music fonend fadein 1.0
+        "Спустя два года..."
+        scene bg gameover with fade
+        
+        pause
+    
+        "Отчислен за плохую успеваемость..."
+        scene title1 with fade
+        pause
+        return
+    
     else:
         "Спустя 4 года"
         s "Ну в универе закончил. Пора и на работу."
 
-    return
+    stop music
+
+    jump arka3
+
+
 
 
 
